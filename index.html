@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TB Detection System - Chest X-Ray Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>TB Detection System</h1>
+                <p class="subtitle">Chest X-Ray Analysis using Machine Learning</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="card">
+                    <h2>Upload X-Ray Image</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="upload-text">Drag and drop your X-Ray image here</p>
+                        <p class="upload-subtext">or click to select</p>
+                        <input 
+                            type="file" 
+                            id="fileInput" 
+                            accept="image/*" 
+                            style="display: none;"
+                        >
+                    </div>
+                    <div class="file-info" id="fileInfo" style="display: none;">
+                        <p><strong>Selected file:</strong> <span id="fileName"></span></p>
+                        <p><strong>File size:</strong> <span id="fileSize"></span></p>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="card">
+                    <h2>Image Preview</h2>
+                    <div class="preview-container" id="previewContainer">
+                        <p class="no-image">No image selected</p>
+                    </div>
+                    <img id="previewImage" alt="Preview" style="display: none; max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+            </div>
+
+            <!-- Prediction Results -->
+            <div class="results-section">
+                <div class="card">
+                    <h2>Prediction Results</h2>
+                    <div id="resultsContent">
+                        <p class="no-results">No prediction yet. Please upload an X-Ray image.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="button-group">
+                <button id="predictBtn" class="btn btn-primary" disabled>Analyze Image</button>
+                <button id="clearBtn" class="btn btn-secondary">Clear</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing image...</p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 TB Detection System. All rights reserved.</p>
+            <p>Backend API running on <span id="apiStatus">http://localhost:5000</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
